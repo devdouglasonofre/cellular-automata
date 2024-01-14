@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { WorldService } from '../../services/world.service';
 
 @Component({
   selector: 'app-world-controls',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./world-controls.component.scss']
 })
 export class WorldControlsComponent {
+
+  constructor(readonly worldService: WorldService) { }
+
+
+  startSimulation() {
+    this.worldService.startSimulation();
+  }
 
 }
