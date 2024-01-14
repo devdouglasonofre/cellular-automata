@@ -8,11 +8,25 @@ import { WorldService } from '../../services/world.service';
 })
 export class WorldControlsComponent {
 
+  width: number = 64;
+  height: number = 64;
+  deadHex: string = '#000000';
+  aliveHex: string = '#ffffff';
+
+
   constructor(readonly worldService: WorldService) { }
 
-
-  startSimulation() {
+  updateTickSpeed(e: Event) {
+    const target = e.target as HTMLInputElement;
+    this.worldService.setTickSpeed(parseInt(target.value));
     this.worldService.startSimulation();
   }
 
+  updateGridSize() {
+    this.worldService.setGridSize(this.width, this.height);
+  }
+
+  updatePalette() {
+    this.worldService.setPalette(this.deadHex, this.aliveHex);
+  }
 }
