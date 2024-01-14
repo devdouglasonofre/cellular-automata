@@ -41,7 +41,6 @@ export class GridComponent implements AfterViewInit {
   }
 
   updateGrid() {
-    console.log(this.worldService.world.width)
     this.canvas!.nativeElement.width = this.worldService.world.width * TILE_SIZE;
     this.canvas!.nativeElement.height = this.worldService.world.height * TILE_SIZE;
     const ctx = this.canvas?.nativeElement.getContext('2d')!;
